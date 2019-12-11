@@ -27,7 +27,7 @@ import os
 import xml.etree.cElementTree as ET
 from PIL import Image
 
-ANNOTATIONS_DIR_PREFIX = "/home/gina/Yolo_mark/x64/Release/data/img/"
+ANNOTATIONS_DIR_PREFIX = "/home/gina/Yolo_mark/x64/Release/data/img/labels/"
 
 DESTINATION_DIR = "converted_labels"
 
@@ -48,7 +48,7 @@ CLASS_MAPPING = {
 def create_root(file_prefix, width, height):
     root = ET.Element("annotations")
     ET.SubElement(root, "filename").text = "{}.jpg".format(file_prefix)
-    ET.SubElement(root, "folder").text = "/home/gina/Yolo_mark/x64/Release/data/img/"
+    ET.SubElement(root, "folder").text = "/home/gina/Yolo_mark/x64/Release/data/img/labels/"
     size = ET.SubElement(root, "size")
     ET.SubElement(size, "width").text = str(width)
     ET.SubElement(size, "height").text = str(height)
@@ -81,7 +81,7 @@ def create_file(file_prefix, width, height, voc_labels):
 def read_file(file_path):
     file_prefix = file_path.split(".txt")[0]
     image_file_name = "{}.jpg".format(file_prefix)
-    img = Image.open("{}/{}".format("/home/gina/Yolo_mark/x64/Release/data/img/", image_file_name))
+    img = Image.open("{}/{}".format("/home/gina/Yolo_mark/x64/Release/data/img/images/", image_file_name))
     w, h = img.size
     with open(file_path, 'r') as file:
         lines = file.readlines()

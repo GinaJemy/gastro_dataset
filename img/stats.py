@@ -1,5 +1,5 @@
 import os
-count = [0,0,0,0,0,0,0,0,0] 
+count = [0,0,0,0,0,0,0,0,0,0] 
 for filename in os.listdir('/home/gina/gastro_dataset/img/labels/'):
 	if filename.endswith('txt'):
 		with open(os.path.join('/home/gina/gastro_dataset/img/labels/',filename), 'r') as file:
